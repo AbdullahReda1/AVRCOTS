@@ -16,6 +16,7 @@
 7. LED
 8. RELAY
 9. TRANSISTOR
+10. TFT
 
 ## LIB
 
