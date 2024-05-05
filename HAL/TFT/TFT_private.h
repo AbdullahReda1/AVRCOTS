@@ -6,7 +6,8 @@
 *********************************************************************************/
 /********************************************************************************
  * Version      Date                  Author                    Description
- * v1.0         27 APR, 2023          Abdullah R.Hebashi        Initial Creation    
+ * v1.0         27 APR, 2023          Abdullah R.Hebashi        Initial Creation
+ * v2.0         5  MAY, 2024          Abdullah R.Hebashi        Adding M_PI Constant and vSwap function
 *********************************************************************************/
 
 #ifndef HAL_TFT_TFT_PRIVATE_H_
@@ -58,11 +59,14 @@
 #define HTFT_Y0     0
 #define HTFT_Y1     159
 
+#define M_PI        3.14159265358979323846264338327950288
 #define ZERO_DATA   0
 
 
 static void HTFT_voidSendData(u8 Copy_u8Data);
 static void HTFT_voidSendCommand(u8 Copy_u8Commend);
+
+static void vSwap(s32* Copy_ps32Variable1, s32* Copy_ps32Variable2);
 
 
 #endif

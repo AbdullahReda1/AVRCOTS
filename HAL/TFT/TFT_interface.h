@@ -6,7 +6,8 @@
 *********************************************************************************/
 /********************************************************************************
  * Version      Date                  Author                    Description
- * v1.0         27 APR, 2023          Abdullah R.Hebashi        Initial Creation    
+ * v1.0         27 APR, 2023          Abdullah R.Hebashi        Initial Creation
+ * v2.0         5  MAY, 2024          Abdullah R.Hebashi        Adding functions started by ellipse
 *********************************************************************************/
 
 #ifndef HAL_TFT_TFT_INTERFACE_H_
@@ -65,6 +66,20 @@ void HTFT_voidSetColorMode(u8 Copy_u8Mode);
 void HTFT_voidSetFeature(u8 Copy_u8Feature);
 
 void HTFT_voidContentHide(void);
+
+void HTFT_voidDrawEllipse(u8 Copy_u8X0, u8 Copy_u8Y0, u8 Copy_u8RadiusX, u8 Copy_u8RadiusY, u16 Copy_u16Color);
+
+void HTFT_voidFillCrescentMoon(u8 Copy_u8X0, u8 Copy_u8Y0, u8 Copy_u8Radius, u16 Copy_u16Color);
+
+void HTFT_voidDrawCircle(u8 Copy_u8X0, u8 Copy_u8Y0, u8 Copy_u8Radius, u16 Copy_u16Color);
+
+void HTFT_voidFillCircle(u8 Copy_u8X0, u8 Copy_u8Y0, u8 Copy_u8Radius, u16 Copy_u16Color);
+
+void HTFT_voidDrawTriangle(u8 Copy_u8X0, u8 Copy_u8Y0, u8 Copy_u8X1, u8 Copy_u8Y1, u8 Copy_u8X2, u8 Copy_u8Y2, u16 Copy_u16Color);
+
+void HTFT_voidDrawLine(u8 Copy_u8X0, u8 Copy_u8Y0, u8 Copy_u8X1, u8 Copy_u8Y1, u16 Copy_u16Color);
+
+void HTFT_voidFillTriangle(u8 Copy_u8X0, u8 Copy_u8Y0, u8 Copy_u8X1, u8 Copy_u8Y1, u8 Copy_u8X2, u8 Copy_u8Y2, u16 Copy_u16Color);
 
 
 #endif
