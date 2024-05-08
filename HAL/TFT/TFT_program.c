@@ -230,6 +230,19 @@ void HTFT_voidContentHide(void)
 	HTFT_voidSendCommand(DISPOFF);
 }
 
+void HTFT_voidFillEllipse(u8 Copy_u8X0, u8 Copy_u8Y0, u8 Copy_u8RadiusX, u8 Copy_u8RadiusY, u16 Copy_u16Color)
+{
+	u8 Local_u8IteratorX, Local_u8IteratorY;
+	u8 Local_u8UpComparison = (Copy_u8RadiusX > Copy_u8RadiusY) ? Copy_u8RadiusX : Copy_u8RadiusY;
+	u8 Local_u8DnComparison = (Copy_u8RadiusX > Copy_u8RadiusY) ? Copy_u8RadiusX - Copy_u8RadiusY : Copy_u8RadiusY - Copy_u8RadiusX;
+
+	for (Local_u8IteratorX = Copy_u8RadiusX, Local_u8IteratorY = Copy_u8RadiusY; Local_u8UpComparison >= Local_u8DnComparison; Local_u8IteratorX--, Local_u8IteratorY--)
+	{
+		HTFT_voidDrawEllipse(Copy_u8X0, Copy_u8Y0, Local_u8IteratorX, Local_u8IteratorY, Copy_u16Color);
+		Local_u8UpComparison--;
+	}
+}
+
 void HTFT_voidDrawEllipse(u8 Copy_u8X0, u8 Copy_u8Y0, u8 Copy_u8RadiusX, u8 Copy_u8RadiusY, u16 Copy_u16Color)
 {
 	s32 Local_s32XPos, Local_s32YPos;
@@ -419,4 +432,37 @@ void HTFT_voidFillCrescentMoon(u8 Copy_u8X0, u8 Copy_u8Y0, u8 Copy_u8Radius, u16
 			Local_s32Error += Local_s32DeltaX - (Copy_u8Radius << 1);
 		}
 	}
+}
+
+void HTFT_voidHomePainting(void)
+{
+	/* Ground */
+	HTFT_voidFillRect(0, 173, 0, 42, GREEN);
+	
+	/* Sky */
+	HTFT_voidFillRect(0, 131, 42, 170, CYAN);
+	
+	/* Tree */
+	HTFT_voidFillRect(12, 28, 36, 110, BROWN);
+	HTFT_voidFillCircle(18, 113, 15, LIMEGREEN);
+	HTFT_voidFillCircle(12, 100, 12, LIMEGREEN);
+	HTFT_voidFillCircle(27, 100, 15, LIMEGREEN);
+	HTFT_voidFillCircle(34, 110, 13, LIMEGREEN);
+	
+	/* House */
+	HTFT_voidFillRect(40, 88, 37, 75, GOLD);									// Body
+	HTFT_voidFillTriangle(33, 74, 96, 74, 65, 100, ORANGERED);					// Roof
+	HTFT_voidFillRect(57, 69, 37, 56, SIENNA);									// Door
+	for (u8 i = 0; i < 6; i++) { HTFT_voidDrawPixel(64 + i, 54, SIENNA); }
+	HTFT_voidFillCircle(50, 65, 6, LIGHTCYAN);									// Window1
+	HTFT_voidFillCircle(76, 65, 6, LIGHTCYAN);									// Window2
+
+	/* Cloud */
+	HTFT_voidFillCircle(55, 130, 10, WHITE);
+	HTFT_voidFillCircle(70, 135, 15, WHITE);
+	HTFT_voidFillCircle(93, 137, 18, WHITE);
+	HTFT_voidFillRect(55, 95, 120, 140, WHITE);
+
+	/* Water */
+	HTFT_voidFillTriangle(1, 0, 0, 42, 13, 42, BLUE);
 }
